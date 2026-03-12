@@ -1,0 +1,17 @@
+function FindAllDuplicate(nums){
+    let map=new Map();
+    let res=[];
+    let n=nums.length;
+
+    for(let i=0;i<nums.length;i++){
+        map.set(nums[i],(map.get(nums[i])||0)+1);
+    }
+
+    for(let [key,value] of map){
+        if(value>n/3){
+            res.push(key);
+        }
+    }
+    return res;
+}
+console.log(FindAllDuplicate([3,2,3]));
